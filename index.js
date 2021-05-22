@@ -1,7 +1,14 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  return fetch('https://anapioficeandfire.com/api/books')
+  .then(response =>
+    response.json()
+  )
+    .then(data => {
+      console.log(data)
+      renderBooks(data);
+    })
 }
+//When I open index.html in the browser, the list of books is displayed but it still doesn't pass the second test. It says "cannot read property 'then' of undefined." If response.json() is undefined, why is it showing up in the browser just fine?
 
 function renderBooks(books) {
   const main = document.querySelector('main');
